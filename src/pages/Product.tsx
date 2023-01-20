@@ -64,8 +64,8 @@ function Product() {
 
   return (
     <section className="max-w-7xl mx-auto my-12 px-4">
-      <div className="flex items-start justify-center mb-16 gap-x-16">
-        <div className="flex-1">
+      <div className="flex items-start justify-center mb-16 gap-x-16 flex-wrap">
+        <div className="sm:flex-1">
           <img src={currentImage} alt="" className="mb-10" />
 
           <PhotoCarousel
@@ -74,7 +74,7 @@ function Product() {
           />
         </div>
 
-        <div className="flex-1">
+        <div className="sm:flex-1">
           <ProductHeader
             tittle={currentProduct?.title}
             price={currentProduct?.price}
