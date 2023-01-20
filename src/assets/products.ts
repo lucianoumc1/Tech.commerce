@@ -5,60 +5,70 @@ export const productList: ProductType[] = [
     id: 1,
     title: "Asado",
     price: 1520,
-    image: "",
+    images:[],
+    description: ""
   },
   {
     id: 2,
     title: "Pan tostado",
     price: 300,
-    image: "",
+    images:[],
+    description: ""
   },
   {
     id: 2,
     title: "Pan tostado",
     price: 300,
-    image: "",
+    images:[],
+    description: ""
   },
   {
     id: 2,
     title: "Pan tostado",
     price: 300,
-    image: "",
+    images:[],
+    description: ""
   },
   {
     id: 2,
     title: "Pan tostado",
     price: 300,
-    image: "",
+    images:[],
+    description: ""
   },
   {
     id: 2,
     title: "Pan tostado",
     price: 300,
-    image: "",
+    images:[],
+    description: ""
   },
   {
     id: 2,
     title: "Pan tostado",
     price: 300,
-    image: "",
+    images:[],
+    description: ""
   },
   {
     id: 2,
     title: "Pan tostado",
     price: 300,
-    image: "",
+    images:[],
+    description: ""
   },
   {
     id: 2,
     title: "Pan tostado",
     price: 300,
-    image: "",
+    images:[],
+    description: ""
   },
   {
     id: 2,
     title: "Pan tostado",
     price: 300,
-    image: "",
+    images:[],
+    description: ""
   },
 ];
