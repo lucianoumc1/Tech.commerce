@@ -5,17 +5,19 @@ import HomePage from "../pages/HomePage";
 import Shop from "../pages/Shop";
 import ContactUs from "../pages/ContactUs";
 import AboutUs from "../pages/AboutUs";
+import Product from "../pages/Product";
 
 interface Props {}
 
 function App({}: Props) {
   return (
     <Routes>
-      <Route path="/" element={<Home />}>
-        <Route path="home" element={<HomePage />} />
+      <Route element={<Home />}>
+        <Route path="/" element={<HomePage />} />
         <Route path="shop" element={<Shop />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
+        <Route path="product/:id" element={<Product />} />
       </Route>
       <Route path="*" element={<h1>not found</h1>} />
     </Routes>
