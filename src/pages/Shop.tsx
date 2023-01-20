@@ -8,7 +8,7 @@ function Shop(): React.ReactElement {
   return (
     <>
       <SearchBar />
-      <div className="flex item justify-end">
+      <div className="flex items-center justify-center max-w-screen-2xl overflow-hidden">
         <Productboard products={productList} />
       </div>
     </>

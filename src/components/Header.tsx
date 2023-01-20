@@ -17,7 +17,7 @@ function Header({}: HeaderProps) {
             <li>
               <Link
                 className="text-base font-medium text-gray-400 hover:text-black"
-                to="/home"
+                to="/"
               >
                 Home
               </Link>

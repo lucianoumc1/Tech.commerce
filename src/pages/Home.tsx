@@ -9,7 +9,7 @@ function Home({}: Props): React.ReactElement {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main className="">
         <Outlet />
       </main>
       <Footer />
