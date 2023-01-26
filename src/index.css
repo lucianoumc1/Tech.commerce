@@ -26,3 +26,13 @@
   background-color: #e6e6e6;
   border-radius: 10px;
 }
+.show-children-to-hover:hover > .show-to-hover-parent {
+  display: block;
+}
+
+.show-to-hover-parent {
+  display: none;
+}
+.show-to-hover-parent:hover {
+  display: block;
+}
