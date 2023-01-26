@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { MouseEventHandler, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductType } from "../types";
+import { useAppDispatch } from "../app/hooks";
+import { addProduct } from "../features/cart/cartSlice";
 
 import returnProduct from "../utils/returnProduct";
+import PrimaryButton from "../components/PrimaryButton";
 
 import { useAppDispatch } from "../app/hooks";
 import { addProduct } from "../features/cart/cartSlice";
@@ -29,7 +32,7 @@ const PhotoCarousel = ({ images, onChangeImage }: PropsPhotoCarousel) => (
 interface PropsProductHeader {
   tittle?: string;
   price?: number;
-  handleClick: Function;
+  handleClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 const ProductHeader = ({ tittle, price, handleClick }: PropsProductHeader) => (
@@ -43,12 +46,7 @@ const ProductHeader = ({ tittle, price, handleClick }: PropsProductHeader) => (
     </span>
 
     <div>
-      <button
-        className="block w-full mx-auto max-w-lg py-2 rounded-xl mt-6 bg-violet-500 text-white text-lg font-bold"
-        onClick={handleClick}
-      >
-        Buy
-      </button>
+      <PrimaryButton text="Add to cart" handleClick={handleClick} />
     </div>
   </div>
 );
@@ -69,7 +67,7 @@ function Product() {
     getProduct(id);
   }, []);
 
-  const handleBuy: Function = () => {
+  const handleAddToCart: MouseEventHandler = () => {
     dispatch(addProduct(currentProduct));
   };
 
@@ -89,7 +87,7 @@ function Product() {
           <ProductHeader
             tittle={currentProduct?.title}
             price={currentProduct?.price}
-            handleClick={handleBuy}
+            handleClick={handleAddToCart}
           />
         </div>
       </div>

@@ -1,14 +1,10 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import { ProductType } from "../types";
-
-type ProductsType = ProductType & {
-  quantity: number;
-};
+import { ProductPackageType } from "../types";
 
 interface Props {
-  product: ProductsType;
+  product: ProductPackageType;
 }
 
 function CartModalItem({ product }: Props) {
@@ -17,7 +13,7 @@ function CartModalItem({ product }: Props) {
   return (
     <div className="w-full h-14 p-4 flex items-center justify-between text-xs gap-x-3 flex-nowrap">
       <Link
-        to={`product/${product.id}`}
+        to={`/product/${product.id}`}
         className="h-full flex-grow flex items-center overflow-hidden"
       >
         <img

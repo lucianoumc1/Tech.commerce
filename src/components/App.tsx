@@ -6,6 +6,7 @@ import Shop from "../pages/Shop";
 import ContactUs from "../pages/ContactUs";
 import AboutUs from "../pages/AboutUs";
 import Product from "../pages/Product";
+import Cart from "../pages/Cart";
 
 interface Props {}
 
@@ -18,6 +19,7 @@ function App({}: Props) {
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="product/:id" element={<Product />} />
+        <Route path="cart" element={<Cart />} />
       </Route>
       <Route path="*" element={<h1>not found</h1>} />
     </Routes>
