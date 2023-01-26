@@ -1,4 +1,4 @@
-import { ProductType } from "../components/Productboard";
+import { ProductType } from "../types";
 
 
 import headphone from "../assets/headphones.png"

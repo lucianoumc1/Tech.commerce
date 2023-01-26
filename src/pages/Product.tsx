@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
-import { ProductType } from "../components/Productboard";
+import { useParams } from "react-router-dom";
+import { ProductType } from "../types";
 
 import returnProduct from "../utils/returnProduct";
 
