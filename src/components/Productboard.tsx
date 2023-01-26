@@ -1,13 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export type ProductType = {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  images: string[];
-};
+import { ProductType } from "../types";
 
 export const ProductCard = (product: ProductType) => (
   <Link to={`/product/${product.id}`}>

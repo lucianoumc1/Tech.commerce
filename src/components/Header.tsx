@@ -1,7 +1,9 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
+import CartHeader from "./CartHeader";
+
 import search from "../assets/search.png";
-import cart from "../assets/cart.png";
 import Logo from "./Logo";
 
 type HeaderProps = {};
@@ -56,7 +58,8 @@ function Header({}: HeaderProps) {
         </Link>
 
         <img className="h-6 " src={search} alt="search" />
-        <img className="h-6" src={cart} alt="cart" />
+
+        <CartHeader />
       </div>
     </header>
   );

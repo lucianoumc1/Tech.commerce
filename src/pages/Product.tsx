@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
-import { ProductType } from "../components/Productboard";
+import { useParams } from "react-router-dom";
+import { ProductType } from "../types";
 
 import returnProduct from "../utils/returnProduct";
+
+import { useAppDispatch } from "../app/hooks";
+import { addProduct } from "../features/cart/cartSlice";
 
 interface PropsPhotoCarousel {
   images?: string[];
@@ -26,9 +29,10 @@ const PhotoCarousel = ({ images, onChangeImage }: PropsPhotoCarousel) => (
 interface PropsProductHeader {
   tittle?: string;
   price?: number;
+  handleClick: Function;
 }
 
-const ProductHeader = ({ tittle, price }: PropsProductHeader) => (
+const ProductHeader = ({ tittle, price, handleClick }: PropsProductHeader) => (
   <div className="mt-6 p-6 border rounded-lg ">
     <h2 className="font-bold text-2xl ">{tittle}</h2>
 
@@ -39,7 +43,10 @@ const ProductHeader = ({ tittle, price }: PropsProductHeader) => (
     </span>
 
     <div>
-      <button className="block w-full mx-auto max-w-lg py-2 rounded-xl mt-6 bg-violet-500 text-white text-lg font-bold">
+      <button
+        className="block w-full mx-auto max-w-lg py-2 rounded-xl mt-6 bg-violet-500 text-white text-lg font-bold"
+        onClick={handleClick}
+      >
         Buy
       </button>
     </div>
@@ -48,9 +55,9 @@ const ProductHeader = ({ tittle, price }: PropsProductHeader) => (
 
 function Product() {
   const { id } = useParams<string>();
-  const [parameter, setParameters] = useSearchParams();
   const [currentProduct, setCurrentProduct] = useState<ProductType>();
   const [currentImage, setCurrentImage] = useState("");
+  const dispatch = useAppDispatch();
 
   const getProduct = async (id: string) => {
     const product: ProductType = await returnProduct(id);
@@ -61,6 +68,10 @@ function Product() {
   useEffect(() => {
     getProduct(id);
   }, []);
+
+  const handleBuy: Function = () => {
+    dispatch(addProduct(currentProduct));
+  };
 
   return (
     <section className="max-w-7xl mx-auto my-12 px-4">
@@ -78,6 +89,7 @@ function Product() {
           <ProductHeader
             tittle={currentProduct?.title}
             price={currentProduct?.price}
+            handleClick={handleBuy}
           />
         </div>
       </div>

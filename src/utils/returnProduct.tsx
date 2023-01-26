@@ -1,4 +1,4 @@
-import { ProductType } from "../components/Productboard";
+import { ProductType } from "../types";
 
 import { productList } from "../assets/products";
 import noImage from "../assets/no-image.png";
