@@ -7,9 +7,6 @@ import { addProduct } from "../features/cart/cartSlice";
 import returnProduct from "../utils/returnProduct";
 import PrimaryButton from "../components/PrimaryButton";
 
-import { useAppDispatch } from "../app/hooks";
-import { addProduct } from "../features/cart/cartSlice";
-
 interface PropsPhotoCarousel {
   images?: string[];
   onChangeImage: Function;
@@ -65,7 +62,7 @@ function Product() {
 
   useEffect(() => {
     getProduct(id);
-  }, []);
+  }, [id]);
 
   const handleAddToCart: MouseEventHandler = () => {
     dispatch(addProduct(currentProduct));
