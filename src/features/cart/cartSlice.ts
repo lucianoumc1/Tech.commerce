@@ -1,16 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProductType } from "../../components/Productboard";
+
+import { ProductType, ProductPackageType } from "../../types";
 
 interface cartState {
   productQuantity: number;
   total: number;
-  products: ProductType[];
+  products: ProductPackageType[];
 };
 
 const initialState: cartState = {
   productQuantity: 0,
   total: 0,
-  products: [],
+  products: [
+  ],
 }
 
 export const cartSlice = createSlice({
@@ -18,17 +20,59 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<ProductType>) => {
-      state.products.push(action.payload);
-      state.productQuantity = state.products.length;
+      const isProductExist: number = state.products.findIndex(item => item.id === action.payload.id)
+      
+      if (isProductExist >= 0) {
+        state.products[isProductExist].quantity += 1
+      } else {
+        state.products.push({ ...action.payload, quantity: 1 });
+      }
+
+      state.productQuantity = state.products.reduce(
+        (acc: number, product) => (acc += product.quantity),
+        0 
+      );
+
       state.total = state.products.reduce(
-        (acc: number, product: ProductType) => (acc += product.price),
+        (acc: number, product) => (acc += product.price),
         0 
       );
     },
+
+    removeProduct: (state, action: PayloadAction<ProductType>) => {
+      state.products = state.products.filter(product => product.id === action.payload.id)
+
+      state.productQuantity = state.products.reduce(
+        (acc: number, product) => (acc += product.quantity),
+        0 
+      );
+
+      state.total = state.products.reduce(
+        (acc: number, product) => (acc += product.price),
+        0 
+      );
+    },
+
+    modifiQuantity: (state, action: PayloadAction<ProductPackageType>) => {
+      state.products = state.products.map(prod => {
+        if (prod["id"] === action.payload["id"]) prod.quantity = action.payload.quantity;
+        return prod
+      })
+
+      state.productQuantity = state.products.reduce(
+        (acc: number, product) => (acc += product.quantity),
+        0 
+      );
+
+      state.total = state.products.reduce(
+        (acc: number, product) => (acc += product.price),
+        0 
+      );
+    }
+
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { addProduct } = cartSlice.actions;
+export const { addProduct, removeProduct, modifiQuantity } = cartSlice.actions;
 
 export default cartSlice.reducer;
