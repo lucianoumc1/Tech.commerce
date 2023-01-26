@@ -4,14 +4,7 @@ import SearchBar from "../components/SearchBar";
 import { productList } from "../assets/products";
 import Productboard from "../components/Productboard";
 
-import { useAppSelector, useAppDispatch } from "../app/hooks";
-
 function Shop(): React.ReactElement {
-  const cart = useAppSelector((state) => state.cart);
-  // const dispatch = useAppDispatch()
-
-  console.log(cart);
-
   return (
     <>
       <SearchBar />
