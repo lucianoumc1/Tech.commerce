@@ -53,9 +53,26 @@ export const cartSlice = createSlice({
       );
     },
 
-    modifiQuantity: (state, action: PayloadAction<ProductPackageType>) => {
+    increaseProductQuantity: (state, action: PayloadAction<ProductPackageType>) => {
       state.products = state.products.map(prod => {
-        if (prod["id"] === action.payload["id"]) prod.quantity = action.payload.quantity;
+        if (prod["id"] === action.payload["id"]) prod.quantity ++;
+        return prod
+      })
+
+      state.productQuantity = state.products.reduce(
+        (acc: number, product) => (acc += product.quantity),
+        0 
+      );
+
+      state.total = state.products.reduce(
+        (acc: number, product) => (acc += product.price),
+        0 
+      );
+    },
+
+    decreaseProductQuantity: (state, action: PayloadAction<ProductPackageType>) => {
+      state.products = state.products.map(prod => {
+        if (prod["id"] === action.payload["id"]) prod.quantity --;
         return prod
       })
 
@@ -73,6 +90,6 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addProduct, removeProduct, modifiQuantity } = cartSlice.actions;
+export const { addProduct, removeProduct, increaseProductQuantity, decreaseProductQuantity } = cartSlice.actions;
 
 export default cartSlice.reducer;
