@@ -49,7 +49,7 @@ const ProductHeader = ({ tittle, price, handleClick }: PropsProductHeader) => (
 );
 
 function Product() {
-  const { id } = useParams<string>();
+  const { id } = useParams();
   const [currentProduct, setCurrentProduct] = useState<ProductType>();
   const [currentImage, setCurrentImage] = useState("");
   const dispatch = useAppDispatch();
@@ -61,11 +61,11 @@ function Product() {
   };
 
   useEffect(() => {
-    getProduct(id);
-  }, []);
+    id && getProduct(id);
+  }, [id]);
 
   const handleAddToCart: MouseEventHandler = () => {
-    dispatch(addProduct(currentProduct));
+    currentProduct && dispatch(addProduct(currentProduct));
   };
 
   return (

@@ -1,55 +1,9 @@
 import React from "react";
 import { useAppSelector } from "../app/hooks";
-import { Link } from "react-router-dom";
 
 import { ProductPackageType } from "../types";
 import PrimaryButton from "../components/PrimaryButton";
-
-interface Props {}
-
-interface CartItemProps {
-  product: ProductPackageType;
-}
-const CartItem = ({ product }: CartItemProps) => (
-  <div className="w-full h-14 p-4 flex items-center justify-between text-base gap-x-3 flex-nowrap">
-    <Link
-      to={`/product/${product.id}`}
-      className="h-full flex flex-grow items-center overflow-hidden"
-    >
-      <img
-        className="flex-shrink-0 h-full mr-2"
-        src={product.images[0]}
-        alt=""
-      />
-      <span
-        className="whitespace-nowrap text-ellipsis"
-        title="nombre del prodasnuidasguyg uygasugasuygoasgyuoagyusgyus"
-      >
-        {product.title}
-      </span>
-    </Link>
-    <form>
-      <div className="flex h-full">
-        <button className="h-full w-6 bg-violet-500 text-white font-bold">
-          {"-"}
-        </button>
-        <input
-          type="text"
-          className="w-6 h-full text-center"
-          disabled
-          value={product.quantity}
-        />
-        <button className="h-full w-6 bg-violet-500 text-white font-bold">
-          {"+"}
-        </button>
-      </div>
-    </form>
-
-    <span className="whitespace-nowrap min-w-max font-bold">
-      $ {(product.quantity * product.price).toFixed(2)}
-    </span>
-  </div>
-);
+import CartItem from "../components/CartItem";
 
 interface ListOfProductsProps {
   productList: ProductPackageType[];
@@ -61,7 +15,7 @@ const ListOfProducts = ({ productList, total }: ListOfProductsProps) => (
     <span className="text-gray-500 text-base block mb-4">List of Products</span>
     <div className="border rounded-lg">
       {productList.map((prod) => (
-        <CartItem key={prod.id} product={prod} />
+        <CartItem key={prod.id} product={prod} text="Regular" />
       ))}
       <div className="flex justify-between p-4 border-t-2">
         <span className="font-bold text-lg">Total</span>
@@ -82,7 +36,7 @@ const PaymentSection = ({}: PaymentSectionProps) => (
   </div>
 );
 
-function Cart({}: Props) {
+function Cart() {
   const cartState = useAppSelector((state) => state.cart);
 
   return (
