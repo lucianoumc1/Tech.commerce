@@ -6,7 +6,10 @@ import { ProductPackageType } from "../types";
 import {
   increaseProductQuantity,
   decreaseProductQuantity,
+  deleteProduct,
 } from "../features/cart/cartSlice";
+
+import trashIcon from "../assets/icons/trash-icon.png";
 
 interface ProductCountProps {
   productQuantity: ProductPackageType["quantity"];
@@ -64,10 +67,13 @@ function CartItem({ product, text }: Props) {
   const handleDecreseProduct = () => {
     dispatch(decreaseProductQuantity(product));
   };
+  const handleDeleteProduct = () => {
+    dispatch(deleteProduct(product));
+  };
 
   return (
     <div
-      className={`w-full h-14 p-4 flex items-center justify-between gap-x-3 flex-nowrap ${TextSize[text]} `}
+      className={`w-full h-14 p-4 pr-0 flex items-center justify-between gap-x-3 flex-nowrap ${TextSize[text]} overflow-hidden`}
     >
       <Link
         to={`/product/${product.id}`}
@@ -96,6 +102,12 @@ function CartItem({ product, text }: Props) {
       <span className="whitespace-nowrap min-w-max font-bold">
         $ {totalPrice}
       </span>
+
+      <div className="bg-violet-500 h-24 flex items-center justify-center w-10">
+        <button type="button" onClick={handleDeleteProduct}>
+          <img src={trashIcon} alt="trash" className="h-6" />
+        </button>
+      </div>
     </div>
   );
 }

@@ -13,7 +13,7 @@ interface ListOfProductsProps {
 const ListOfProducts = ({ productList, total }: ListOfProductsProps) => (
   <>
     <span className="text-gray-500 text-base block mb-4">List of Products</span>
-    <div className="border rounded-lg">
+    <div className="border rounded-lg overflow-hidden">
       {productList.map((prod) => (
         <CartItem key={prod.id} product={prod} text="Regular" />
       ))}
