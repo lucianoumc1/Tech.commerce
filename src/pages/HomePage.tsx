@@ -8,7 +8,7 @@ import Brands from "../components/Brands";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-center justify-center px-6 max-w-7xl w-full min-w-sm m-auto">
+    <div className="flex flex-col items-center justify-center px-2 md:px-6 max-w-7xl w-full min-w-sm m-auto">
       <CoverCard />
       <Categories />
       <StatsSection />

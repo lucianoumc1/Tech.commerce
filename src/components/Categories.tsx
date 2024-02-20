@@ -10,8 +10,11 @@ import speaker from "../assets/speaker.png";
 
 function Categories(): React.ReactElement {
   return (
-    <div className="grid grid-cols-4 grid-rows-2 max-w-7xl w-full min-w-sm gap-6 my-6">
-      <div className="col-span-1">
+    <div className="grid grid-cols-4 grid-rows-2 max-w-7xl w-full min-w-sm gap-2 md:gap-6 my-4">
+      <div
+        className="col-span-4+
+       md:col-span-1"
+      >
         <Card
           littelText="Enjoy"
           mediumText="With"
@@ -21,7 +24,7 @@ function Categories(): React.ReactElement {
           imageProps="-right-16 -bottom-8"
         />
       </div>
-      <div className="col-span-1">
+      <div className="col-span-2 md:col-span-1">
         <Card
           littelText="New"
           mediumText="Wear"
@@ -51,7 +54,7 @@ function Categories(): React.ReactElement {
           imageProps="h-[350px] -top-12 right-12"
         />
       </div>
-      <div className="col-span-1">
+      <div className="col-span-2 md:col-span-1">
         <Card
           littelText="Play"
           mediumText="Game"
@@ -61,7 +64,7 @@ function Categories(): React.ReactElement {
           imageProps="h-[150px] top-24 right-0"
         />
       </div>
-      <div className="col-span-1">
+      <div className="col-span-2 md:col-span-1">
         <Card
           littelText="New"
           mediumText="Amazon"
