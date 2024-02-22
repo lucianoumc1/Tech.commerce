@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
+import Layout from "../pages/Layout";
 import HomePage from "../pages/HomePage";
 import Shop from "../pages/Shop";
 import ContactUs from "../pages/ContactUs";
@@ -13,7 +13,7 @@ interface Props {}
 function App({}: Props) {
   return (
     <Routes>
-      <Route element={<Home />}>
+      <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="shop" element={<Shop />} />
         <Route path="contact-us" element={<ContactUs />} />

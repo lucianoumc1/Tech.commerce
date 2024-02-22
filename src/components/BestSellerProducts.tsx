@@ -9,7 +9,7 @@ function BestSellerProducts() {
     <section className="w-full">
       <SecctionTitle
         title="Best Seller Products"
-        subtitle="Cositas de packete win en pageins teh"
+        subtitle="Speker there are many variations passages"
       />
       <Productboard products={bestSellerProducts} />
     </section>

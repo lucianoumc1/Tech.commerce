@@ -30,13 +30,13 @@ const itemStats = [
 
 function StatsSection(): React.ReactElement {
   return (
-    <div className="flex items-center justify-between gap-x-4 w-full my-12">
+    <div className="flex items-center justify-evenly gap-4 w-full my-12 flex-wrap md:flex-nowrap px-2">
       {itemStats.map((item) => (
         <div className="flex gap-4 items-center" key={item.title}>
           <img src={item.icon} alt={item.icon} className="h-14 opacity-80" />
           <div>
-            <h6 className="font-semibold text-base m-0 p-0">{item.title}</h6>
-            <span className="text-gray-400 m-0 p-0 text-sm">{item.desc}</span>
+            <h6 className="font-semibold text-base">{item.title}</h6>
+            <span className="text-gray-400 text-sm">{item.desc}</span>
           </div>
         </div>
       ))}

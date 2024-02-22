@@ -40,17 +40,17 @@ function Cart() {
   const cartState = useAppSelector((state) => state.cart);
 
   return (
-    <section className="max-w-screen-2xl mx-auto my-12">
+    <section className="max-w-screen-xl mx-auto my-12 px-8">
       <h1 className="font-bold text-4xl mb-4">Cart</h1>
-      <div className="flex  justify-center gap-12">
-        <div className="flex-1">
-          <PaymentSection />
-        </div>
+      <div className="flex flex-col lg:flex-row justify-center gap-12">
         <div className="flex-1">
           <ListOfProducts
             productList={cartState.products}
             total={cartState.total}
           />
+        </div>
+        <div className="flex-1">
+          <PaymentSection />
         </div>
       </div>
     </section>

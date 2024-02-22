@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 interface Props {}
 
-function Home({}: Props): React.ReactElement {
+function Layout({}: Props): React.ReactElement {
   return (
     <>
       <Header />
@@ -17,4 +17,4 @@ function Home({}: Props): React.ReactElement {
   );
 }
 
-export default Home;
+export default Layout;

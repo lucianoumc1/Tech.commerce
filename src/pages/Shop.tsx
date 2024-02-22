@@ -15,7 +15,7 @@ function Shop(): React.ReactElement {
   return (
     <>
       <SearchBar />
-      <div className="max-w-screen-2xl mx-auto">
+      <div className="max-w-screen-xl mx-auto my-24">
         <Productboard products={productList} />
       </div>
     </>

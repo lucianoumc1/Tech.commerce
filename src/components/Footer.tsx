@@ -6,7 +6,7 @@ import SocialMedia from "./SocialMedia";
 function Footer() {
   return (
     <footer className="w-full border-t">
-      <div className="flex items-start justify-between overflow-hidden px-6 gap-6 w-full my-12 mx-auto">
+      <div className="flex items-start justify-between overflow-hidden px-4 gap-6 w-full max-w-screen-xl my-12 mx-auto">
         <div className="flex-1">
           <Logo />
           <span className="text-sm text-gray-500 my-6 block">
